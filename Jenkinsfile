@@ -4,7 +4,16 @@ pipeline {
     tools {
         go 'go1.21.5'
     }
-
+    stages {
+        stage('Unit Test') {
+            steps {
+                script {
+                    sh 'go mod init hello'
+                    sh 'go test'
+                }
+            }
+        }
+    }
     stages {
         stage('Build') {
             steps {
