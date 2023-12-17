@@ -2,12 +2,9 @@ pipeline {
     agent any
 
    tools {
-       go 'go-1.21.3'
+       go 'go1.21.5'
     }
 
-    environment {
-        SONAR_TOKEN = credentials('SONAR_TOKEN') // Reference Jenkins credential ID
-    }
 
     stages {
         stage('Unit Test') {
@@ -26,14 +23,6 @@ pipeline {
                     sh 'go tool cover -html=coverage.out -o coverage.html'
                 }
                 archiveArtifacts 'coverage.html'
-            }
-        }
-
-        stage('Run SonarQube Analysis') {
-            steps {
-                script {
-                        sh '/usr/local/sonar/bin/sonar-scanner -X -Dsonar.organization=wm-demo -Dsonar.projectKey=wm-demo_hello-webapp-golang -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io'
-                }
             }
         }
 
