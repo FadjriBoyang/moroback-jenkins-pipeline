@@ -4,7 +4,9 @@ pipeline {
     tools {
         go 'go1.21.5'
     }
+
     stages {
+
         stage('Unit Test') {
             steps {
                 script {
@@ -13,8 +15,6 @@ pipeline {
                 }
             }
         }
-    }
-    stages {
         stage('Build') {
             steps {
                 script {
