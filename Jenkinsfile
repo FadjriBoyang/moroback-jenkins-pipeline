@@ -6,14 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
-                script {
-                    sh 'go build -o main .'
-                    archiveArtifacts 'main'
-                }
-            }
-        }
+
 
         stage('Build Docker Image') {
             steps {
