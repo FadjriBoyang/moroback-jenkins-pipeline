@@ -4,12 +4,15 @@
   become: yes
   tasks:
     - name: Stop and remove existing container (if it exists)
-      command: docker stop helloapp
+      command: docker stop moroback
       ignore_errors: yes
 
     - name: Stop and remove existing container (if it exists)
       command: docker rmi $(docker image ls)
       ignore_errors: yes
 
+    - name: pull latest image
+      command: docker pull boyangyang/moroback:latest
+
     - name: Run a new container
-      command: docker run -itd -p 8080:8080 --name helloapp --rm dab8106/hellogo
+      command: docker run -itd -p 8080:8080 --name moroback --rm boyangyang/moroback:latest
