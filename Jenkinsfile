@@ -26,7 +26,7 @@ pipeline {
         stage('Unit Test') {
             steps {
                 script {
-                    sh 'go mod init hello'
+                    sh 'go mod init moroback'
                     
                 }
             }
