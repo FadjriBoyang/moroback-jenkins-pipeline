@@ -14,6 +14,7 @@ pipeline {
         stage('Debug') {
             steps {
                 script {
+                    sh 'whoami'
                     sh 'ls -l $PRIVATE_KEY_PATH'
                     sh 'cat $PRIVATE_KEY_PATH'
                     sh 'ansible-playbook ansible/deploy-container.yaml'
