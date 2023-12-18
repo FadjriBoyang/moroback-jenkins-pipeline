@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     sh 'whoami'
-                    sh 'sudo chmod 440 /home/ec2-user/morokey.pem'
+
                     sh 'ls -l $PRIVATE_KEY_PATH'
                     sh 'cat $PRIVATE_KEY_PATH'
                     sh 'ansible-playbook ansible/deploy-container.yaml'
