@@ -7,7 +7,7 @@ pipeline {
         
     environment {
         ANSIBLE_CONFIG = '/etc/ansible/ansible.cfg'
-        PRIVATE_KEY_PATH = '/etc/ansible/morokey.pem'
+        PRIVATE_KEY_PATH = '/home/ec2-user/morokey.pem'
     }
 
     stages {
