@@ -18,7 +18,7 @@ pipeline {
 
                     sh 'ls -l $PRIVATE_KEY_PATH'
                     sh 'cat $PRIVATE_KEY_PATH'
-                    sh 'ansible-playbook ansible/test_connection.yaml'
+                    sh 'ansible-playbook /etc/ansible/test_connection.yaml'
                 }
             }
         }
