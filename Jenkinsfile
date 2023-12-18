@@ -34,6 +34,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                    sh 'pwd'
+                    sh 'ls'
                     sh 'go build -o main .'
                 }
                 archiveArtifacts 'main'
