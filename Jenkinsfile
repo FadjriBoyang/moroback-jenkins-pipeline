@@ -4,6 +4,10 @@ pipeline {
     tools {
         go 'go1.21.5'
     }
+        
+    environment {
+        ANSIBLE_CONFIG = '/etc/ansible/ansible.cfg'
+    }
 
     stages {
 

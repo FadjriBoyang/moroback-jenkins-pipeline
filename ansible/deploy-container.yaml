@@ -7,7 +7,7 @@
       command: docker stop moroback
       ignore_errors: yes
 
-    - name: Stop and remove existing container (if it exists)
+    - name: Remove existing container image (if it exists)
       command: docker rmi $(docker image ls)
       ignore_errors: yes
 
