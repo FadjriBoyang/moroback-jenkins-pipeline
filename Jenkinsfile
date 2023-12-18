@@ -7,10 +7,19 @@ pipeline {
         
     environment {
         ANSIBLE_CONFIG = '/etc/ansible/ansible.cfg'
+        PRIVATE_KEY_PATH = '/etc/ansible/morokey.pem'
     }
 
     stages {
-
+        stage('Debug') {
+            steps {
+                script {
+                    sh 'ls -l $PRIVATE_KEY_PATH'
+                    sh 'cat $PRIVATE_KEY_PATH'
+                    sh 'ansible-playbook ansible/deploy-container.yaml'
+                }
+            }
+        }
         stage('Unit Test') {
             steps {
                 script {
@@ -43,6 +52,7 @@ pipeline {
                         sh """
                             echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
                             docker push boyangyang/moroback:latest
+                            
                         """
                     }
                 }
