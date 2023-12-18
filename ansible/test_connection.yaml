@@ -1,0 +1,6 @@
+---
+- name: Test SSH Connection
+  hosts: webserver
+  tasks:
+    - name: Perform Ansible Ping Test
+      ping:
